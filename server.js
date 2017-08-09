@@ -8,8 +8,14 @@ app.use(morgan('combined'));
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-app.get('/myfirstarticle',function(req,res){
+app.get('/myarticle-first',function(req,res){
     res.send('Article 1 requested');
+});
+app.get('/myarticle-second',function(req,res){
+    res.send('My second article is requested');
+});
+app.get('/myarticle-third',function(req,res){
+    res.send('My third article is requested');
 });
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
