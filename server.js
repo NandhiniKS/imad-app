@@ -26,11 +26,8 @@ Function CreateTemplate(data)
    <html>
     <head> 
     <link href="/ui/style.css" rel="stylesheet" />
-    <title>
-        ${title}
-    </title>
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+           ${title}
+       <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
             <div class="container">
