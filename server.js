@@ -4,64 +4,53 @@ var path = require('path');
 
 var app = express();
 app.use(morgan('combined'));
-var articles={
-    'article_one':{
+var article_one={
+   
         title:'My article one',
         heading:'Article ONE',
         date:'13 th August 2017',
-        content:` <p>This is my article one. just addded html tag file in it This is my article one. just addded html tag file in it.This is my article one. just addded html tag file in it.This is my article one. just addded html tag file in it.This is my article one. just addded html tag file in it.This is my article one. just addded html tag file in it
-        </p>
-        
-        
-    }
+        content:`
+        <p>This is my article one. just addded html tag file in it This is my article one. just addded html tag file in it.This is my article one. just addded html tag file in it.This is my article one. just addded html tag file in it.This is my article one. just addded html tag file in it.This is my article one. just addded html tag file in it
+        </p>`
     
-}
-Function CreateTemplate(data)
-{
-    var title=data.tilte
-    var heading=data.heading
-    var date=data.date
+};
+function createTemplate(data){
+    var title=data.title;
+    var date= data.date;
     var content=data.content
-    var htmlTemplate=`   
-   <html>
-    <head> 
-    <link href="/ui/style.css" rel="stylesheet" />
-           ${title}
-       <meta name="viewport" content="width=device-width, initial-scale=1">
+    var heading=data.heading
+var htmlTemplate=`
+<html>
+    <head>
+    <title>
+       ${title}
+    </title>
+    <meta name='viewpoint' content="width-device-width,intial-scale=1"/>
+    <link href="/ui/style.css" rel="stylesheet"/>
     </head>
     <body>
-            <div class="container">
-                <div>
-                    <a href="/"> Home</a>
-                </div>
-                <hr/>
-                <hr/>
-                <h3>
-                    ${heading}
-                </h3>
-                <div>
-                    ${date}
-                </div>
-                <div>
-                    ${content}  
-                </div>
-                <hr/>
-            </div>
-
+   <div>
+     ${date}
+   </div>
+      <div>
+        <a href="https://imad.hasura.io/index.html">Home</a>
+        <hr>
+       </div>
+        <h3> ${heading}</h3>
+       ${content}
+    
     </body>
-</html> 
+</html>
+
 `;
 return htmlTemplate;
 }
-}
-app.get('/a1', function (req, res) {
-res.send(createTemplate (articles[articlename ]));
-};
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 app.get('/myarticle-first',function(req,res){
-     res.sendFile(path.join(__dirname,'ui', 'activity_one.html'));
+   //  res.sendFile(path.join(__dirname,'ui', 'activity_one.html'));
+   res.send(createTempalte(article_one));
 });
 app.get('/myarticle-second',function(req,res){
     res.sendFile(path.join(__dirname,'ui', 'activity_two.html'));
