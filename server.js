@@ -72,7 +72,7 @@ app.get('/', function (req, res) {
 });
 app.get('/:articleNames',function(req,res){
    //  res.sendFile(path.join(__dirname,'ui', 'activity_one.html'));
-   var articleName=req.params.articleName;
+   var articleNames=req.params.articleName;
    res.send(createTemplate(articleNames));
 });
 app.get('/myarticle-second',function(req,res){
