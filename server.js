@@ -29,12 +29,13 @@ var htmlTemplate=`
     <link href="/ui/style.css" rel="stylesheet"/>
     </head>
     <body>
-   <div>
-     ${date}
-   </div>
+   
       <div>
         <a href="https://imad.hasura.io/index.html">Home</a>
         <hr>
+       </div>
+       <div>
+         ${date}
        </div>
         <h3> ${heading}</h3>
        ${content}
