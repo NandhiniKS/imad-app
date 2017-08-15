@@ -4,7 +4,7 @@ element.innerHtml='hello';
 var img=document.getElementById('madi');
 var marginLeft=0;
 img.onclick=function(){
-   var interval=setInterval(moveRight,100);
+   var interval=setInterval(moveRight,1);
 };
 
 function moveRight(){
