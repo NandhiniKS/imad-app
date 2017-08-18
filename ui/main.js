@@ -11,11 +11,11 @@ function moveRight(){
     marginLeft=marginLeft+1;
     img.style.marginLeft=marginLeft+'px';
 }*/
-var count=0;
+var count1=0;
 
 var button=document.getElementById('counter');
 button.onClick=function(){
-    count=count+1;
+    count1=count1+1;
     var span=document.getElementById('count');
-    span.innerHtml=count.toString();
+    span.innerHtml=count1.toString();
 };
