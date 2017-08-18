@@ -15,8 +15,9 @@ var count1=0;
 
 var button=document.getElementById('counter');
 button.onClick=function(){
+    console.log('Entered');
     count1=count1+1;
     var span=document.getElementById('count');
     span.innerHtml=count1.toString();
-    console.log(count1.toString);
+    console.log(count1);
 };
