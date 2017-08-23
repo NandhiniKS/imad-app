@@ -19,5 +19,5 @@ button.onClick=function(){
     count1=count1+1;
     var span=document.getElementById('count');
     span.innerHtml=count1.toString();
-    console.log(count1);
+   // console.log(count1);
 };
