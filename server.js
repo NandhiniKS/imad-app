@@ -14,20 +14,7 @@ var congif={
 
 var app = express();
 app.use(morgan('combined'));
-var pool=new Pool(config);
-app.get('/test.db',function(req,res){
-   pool.query('select * from test',function(err,result)
-   {
-       if(err)
-       {
-           res.status(500).send(err.toString());
-           
-       }else
-       {
-           res.send(JSON.stringfy(result));
-       }
-   }) ;
-});
+
 /*var articles={
      'article-one':{
         title:'My article one',
@@ -109,6 +96,20 @@ app.get('/ui/style.css', function (req, res) {
 });
 app.get('/ui/main.js', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'main.js'));
+});
+var pool=new Pool(config);
+app.get('/test.db',function(req,res){
+   pool.query('select * from test',function(err,result)
+   {
+       if(err)
+       {
+           res.status(500).send(err.toString());
+           
+       }else
+       {
+           res.send(JSON.stringfy(result));
+       }
+   }) ;
 });
 
 var counter=0;
