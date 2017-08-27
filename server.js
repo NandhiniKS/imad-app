@@ -83,7 +83,7 @@ app.get('/', function (req, res) {
 
 app.get('/articles/:articleNames',function(req,res){
    //  res.sendFile(path.join(__dirname,'ui', 'activity_one.html'));
-   pool.query("select * from articles where title='"+req.params.articleNames+"'",function(err,req){
+   pool.query("select * from articles where title="+"'"+req.params.articleNames+"'",function(err,req){
        if(err)
        {
            res.status(500).send(err.toString());
