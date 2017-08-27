@@ -15,7 +15,68 @@ var config={
 var app = express();
 app.use(morgan('combined'));
 
+/*var articles={
+     'article-one':{
+        title:'My article one',
+        heading:'Article ONE',
+        date:'13 th August 2017',
+        content:`
+        <p>This is my article one. just addded html tag file in it This is my article one. just addded html tag file in it.This is my article one. just addded html tag file in it.This is my article one. just addded html tag file in it.This is my article one. just addded html tag file in it.This is my article one. just addded html tag file in it
+        </p>`
+    
+    },
+     'article-two':{
+         title:'My article two',
+        heading:'Article TWO',
+        date:'10 th August 2017',
+        content:`
+        <p>This is my article two. just addded html tag file in it 
+        </p>`
+    
+    },
+     'article-three':{
+         title:'My article three',
+        heading:'Article Three',
+        date:'5 th August 2017',
+        content:`
+        <p>This is my article three.
+            jsut checking
+        </p>`
+        }
 
+};
+function createTemplate(data){
+    var title=data.title;
+    var date= data.date;
+    var content=data.content;
+    var heading=data.heading;
+var htmlTemplate=`
+<html>
+    <head>
+    <title>
+       ${title}
+    </title>
+    <meta name='viewpoint' content="width-device-width,intial-scale=1"/>
+    <link href="/ui/style.css" rel="stylesheet"/>
+    </head>
+    <body>
+   
+      <div>
+        <a href="https://imad.hasura.io/index.html">Home</a>
+        <hr>
+       </div>
+       <div>
+         ${date}
+       </div>
+        <h3> ${heading}</h3>
+       ${content}
+    
+    </body>
+</html>
+
+`;
+return htmlTemplate;
+}*/
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
