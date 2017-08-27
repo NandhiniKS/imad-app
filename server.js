@@ -80,11 +80,31 @@ return htmlTemplate;
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-/*app.get('/:articleNames',function(req,res){
+
+app.get('/articles/:articleNames',function(req,res){
    //  res.sendFile(path.join(__dirname,'ui', 'activity_one.html'));
-   var articleNames=req.params.articleNames;
-   res.send(createTemplate(articles[articleNames]));
-});*/
+   pool.query("select * from articles where title='"+req.params.articleNames+"'",function(err,req){
+       if(err)
+       {
+           res.status(500).send(err.toString());
+       }else
+       {
+          if(result.rows.length===0)
+          {
+              res.status(404).send('Article no found!');
+          }else
+          {
+              var articleData=result.rows[0];
+              res.send(CreateTemplate(articleData));
+          }
+       }
+       
+    
+});
+   
+  // var articleNames=req.params.articleNames;
+   //res.send(createTemplate(articles[articleNames]));
+});
 /*app.get('/myarticle-second',function(req,res){
     res.sendFile(path.join(__dirname,'ui', 'activity_two.html'));
 });
