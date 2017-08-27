@@ -84,7 +84,7 @@ app.get('/', function (req, res) {
 app.get('/articles/:articleNames',function(req,res){
    //  res.sendFile(path.join(__dirname,'ui', 'activity_one.html'));
    console.log(req.params.articleNames);
-   pool.query("select * from articles where title='"+req.params.articleNames+"'",function(err,result){
+   pool.query("select * from articles where title=$1",[req.params.articleNames],function(err,result){
        if(err)
        {
            res.status(500).send(err.toString());
