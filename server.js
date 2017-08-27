@@ -65,10 +65,10 @@ var htmlTemplate=`
         <a href="https://imad.hasura.io/index.html">Home</a>
         <hr>
        </div>
+        <h3> ${heading}</h3>
        <div>
          ${date}
        </div>
-        <h3> ${heading}</h3>
        ${content}
     
     </body>
