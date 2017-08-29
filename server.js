@@ -2,6 +2,7 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var Pool=require('pg').Pool;
+var crypto=require('crypto');
 var config={
     user:'nandhiniks92',
     database:'nandhiniks92',
@@ -96,10 +97,22 @@ app.get('/articles/:articleNames',function(req,res){
           {
               var articleData=result.rows[0];
              res.send(createTemplate(articleData));
+             
           }
        }
        
     
+});
+function hash(){
+    var salt='this is secrete password';
+    var hashed=crypto.pbkdf2Sync(input,salt,10000,512,'sha512');
+    return hashed.toString(hex);
+}
+app.get('/hash/:input',function(req,res){
+   var hashedString=hash(req.params.input) ;
+   res.send(hashedString);
+   
+   
 });
    
   // var articleNames=req.params.articleNames;
