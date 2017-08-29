@@ -82,6 +82,19 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
+function hash(input,salt){
+    console.log(input);
+      var hashed=crypto.pbkdf2Sync(input,salt,10000,512,'sha512');
+    return hashed.toString(hex);
+}
+app.get('/hash/:input',function(req,res){
+console.log('in');
+   var hashedString=hash(req.params.input,'this is secrete password') ;
+   res.send(hashedString);
+   
+   
+});
+
 app.get('/articles/:articleNames',function(req,res){
    //  res.sendFile(path.join(__dirname,'ui', 'activity_one.html'));
    console.log(req.params.articleNames);
@@ -103,18 +116,7 @@ app.get('/articles/:articleNames',function(req,res){
        
     
 });
-function hash(input,salt){
-    console.log(input);
-      var hashed=crypto.pbkdf2Sync(input,salt,10000,512,'sha512');
-    return hashed.toString(hex);
-}
-app.get('/hash/:input',function(req,res){
-console.log('in');
-   var hashedString=hash(req.params.input,'this is secrete password') ;
-   res.send(hashedString);
-   
-   
-});
+
    
   // var articleNames=req.params.articleNames;
    //res.send(createTemplate(articles[articleNames]));
