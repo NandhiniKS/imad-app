@@ -103,7 +103,7 @@ app.get('/articles/:articleNames',function(req,res){
        
     
 });
-function hash(){
+function hash(input){
     var salt='this is secrete password';
     var hashed=crypto.pbkdf2Sync(input,salt,10000,512,'sha512');
     return hashed.toString(hex);
